@@ -1,0 +1,28 @@
+<!DOCTYPE HTML><html>
+  <head>
+    <title>ESP Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h2>Cat Toy 3</h2>
+    <p>Toggle</p>
+    <input id= "outputState" class="switch" onchange="toggleCheckbox(this)" type="checkbox">
+    <h1>Pan</h1>
+    <p><span id="textSliderValue">%SLIDERVALUE%</span></p>
+    <p><input type="range" oninput="updateSliderPWM(this)" id="pwmSlider" min="0" max="1023" value="%SLIDERVALUE%" step="1" class="slider"></p>
+    
+    <h1>Rotate Head</h1>
+    <p><span id="textSliderValue27">%SLIDERVALUE%</span></p>
+    <p><input type="range" oninput="updateSliderPWM27(this)" id="pwmSlider27" min="0" max="1023" value="%SLIDERVALUE%" step="1" class="slider"></p>
+    
+    <h1>Tilt</h1>
+    <p><span id="textSliderValue13">%SLIDERVALUE%</span></p>
+    <p><input type="range" oninput="updateSliderPWM13(this)" id="pwmSlider13" min="0" max="1023" value="%SLIDERVALUE%" step="1" class="slider"></p>
+    
+    
+   
+  </body>
+</html>
