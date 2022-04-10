@@ -2,14 +2,8 @@
 
 #include <analogWrite.h>
 #include <ESP32Servo.h>
-
-#ifdef ESP32
-  #include <WiFi.h>
-  #include <AsyncTCP.h>
-#else
-  #include <ESP8266WiFi.h>
-  #include <ESPAsyncTCP.h>
-#endif
+#include <WiFi.h>
+#include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 
 
@@ -109,9 +103,9 @@ void setup(){
   Serial.println(WiFi.localIP());
 
   // Route for root / web page
-server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-request->send(200, "index/html", "index_html");
-});
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/html", "index_html", processor);
+  });
 
   // Send a GET request to <ESP_IP>/update?state=<inputMessage>
   server.on("/update", HTTP_GET, [] (AsyncWebServerRequest *request) {
